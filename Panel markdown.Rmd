@@ -23,7 +23,7 @@ library(car)
 ```
 
 ```{r}
-x11()
+
 scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
 scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
 scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
