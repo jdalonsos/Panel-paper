@@ -1,0 +1,47 @@
+---
+title: "R Panel Paper"
+output:
+  html_document:
+    df_print: paged
+date: '2022-10-28'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(readxl)
+base_panel_levels=read_xlsx(path = "C:/Users/juand/OneDrive/Escritorio/Daniel/PanelFAMP.xlsx")
+base_panel=read_xlsx(path = "C:/Users/juand/OneDrive/Escritorio/Daniel/datalogARG&EC.xlsx")
+
+library(foreign)
+library(carData)
+library(car)
+```
+
+```{r}
+x11()
+scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+
+```
+
+
+
+
+
+
+
