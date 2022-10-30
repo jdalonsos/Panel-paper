@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library(readxl)
 base_panel_levels=read_xlsx(path = "C:/Users/juand/OneDrive/Escritorio/Daniel/PanelFAMP.xlsx")
-base_panel=read_xlsx(path = "C:/Users/juand/OneDrive/Escritorio/Daniel/datalogARG&EC.xlsx")
+
 
 library(foreign)
 library(carData)
@@ -23,19 +23,93 @@ library(car)
 ```
 
 ```{r}
+#scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+#scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+#scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+#scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+#scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+#scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
+#scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+```
 
-scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(co2epik~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
-scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(NONREN~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
-scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(LOWENER~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
-scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(FOR~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
-scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(KOFGI~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
-scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel_levels)
-scatterplot(AVA~Año|Pais,boxplots=FALSE, smooth=F, reg.line=FALSE, data=base_panel)
+
+```{r}
+ggplot(data = base_panel_levels, aes(x = Año, y = co2epik)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNco2epik)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = NONREN)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNNONREN)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LOWENER)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNLOWENER)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = FOR)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNFOR)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = AVA)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNAVA)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = KOFGI)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
+
+ggplot(data = base_panel_levels, aes(x = Año, y = LNKOFGI)) +
+  geom_line(aes(colour = as.factor(Pais))) +
+  geom_smooth(method = "lm", se = F, lty = "dashed") +
+  labs(x = "Year",  y = "Gross co2epik") +
+  theme(legend.position = "bottom")
 
 ```
 
